@@ -5,14 +5,14 @@ class SignupDatabase extends Dbh
     protected function setUser($userid, $pwd, $email)
     {
         // Dit maak een user aan de databse.
-        $stmt = $this->connect()->prepare('INSERT INTO users (user_userid, user_pwd, user_email) VALUES (?, ?, ?);'); //input statement
+        $stmt = $this->connect()->prepare('INSERT INTO medewerkers (medewerker_user, medewerker_pwd, email) VALUES (?, ?, ?);'); //input statement
 
         // password voor security
         $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
 
         if (!$stmt->execute(array($userid, $hashedPwd, $email))) {
             $stmt = null;
-            header("location: index.php?error=stmtfailed");
+            header("location: medewerker-signin.php?error=stmtfailed");
             exit();
         }
 
@@ -23,11 +23,11 @@ class SignupDatabase extends Dbh
     protected function checkUser($userid, $email)
     {
         // Dit check als er een bestand gebruik al in de database.
-        $stmt = $this->connect()->prepare('SELECT user_userid FROM users WHERE user_userid = ? OR user_email = ?;'); //select statement
+        $stmt = $this->connect()->prepare('SELECT medewerker_user FROM medewerkers WHERE medewerker_user = ? OR email = ?;'); //select statement
 
         if (!$stmt->execute(array($userid, $email))) {
             $stmt = null;
-            header("location: index.php?error=stmtfailed");
+            header("location: medewerker-signin.php?error=stmtfailed");
             exit();
         }
 

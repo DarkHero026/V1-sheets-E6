@@ -20,25 +20,25 @@ class SignupChecker extends SignupDatabase
     {
         if ($this->emptyInput() == false) {
             // echo "Empty input!";
-            header("location: index.php?error=emptyinput");
+            header("location: medewerker-signin.php?error=emptyinput");
             exit();
         }
 
         if ($this->invalidEmail() == false) {
             // echo "Invalid Email!";
-            header("location: index.php?error=email");
+            header("location: medewerker-signin.php?error=email");
             exit();
         }
 
         if ($this->pwdMatch() == false) {
             // echo "Password doesn't match!";
-            header("location: index.php?error=passwordmatch");
+            header("location: medewerker-signin.php?error=passwordmatch");
             exit();
         }
 
         if ($this->useridTaken() == false) {
             // echo "Username or email taken!";
-            header("location: index.php?error=usernameoremailtaken");
+            header("location: medewerker-signin.php?error=usernameoremailtaken");
             exit();
         }
 

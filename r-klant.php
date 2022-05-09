@@ -1,6 +1,8 @@
 <?php
-session_start();
+require_once 'r-procces.php';
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,15 +38,50 @@ session_start();
         </nav>
     </div>
 </head>
+<br><br>
 
 <body>
-    <br>
+
     <div class="container">
-        <h1 class="cover-heading">Hotel ter duin</h1>
-        <p class="lead">Klik op Reservier om een kamer te reservieren en voor meer info ga naar klik op Contact</p>
-        <p class="lead">
-            <a href="r-klant.php" class="btn btn-lg btn-secondary">Reservieren</a>
-        </p>
+        <form action="r-procces.php" method="post">
+            <h3>Reservier nu</h3>
+            <div class="from-group row">
+                <div class="form-group col-md-6">
+                    <label>Check In</label>
+                    <input type="date" name="startid" class="form-control">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Check Out</label>
+                    <input type="date" name="endid" class="form-control">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Naam</label>
+                <input type="text" class="form-control" name="naam">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Adres</label>
+                    <input type="text" class="form-control" name="adres">
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Plaats</label>
+                    <input type="text" class="form-control" name="plaats">
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Postcode</label>
+                    <input type="text" class="form-control" name="postcode">
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Telefoon</label>
+                    <input type="text" class="form-control" name="telefoon">
+                </div>
+            </div>
+            <div class="form-group">
+                <br>
+                <button type="submit" class="btn btn-primary" name="submit">Reservier</button>
+            </div>
+        </form>
     </div>
 
 </body>

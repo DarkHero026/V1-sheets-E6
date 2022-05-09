@@ -15,7 +15,7 @@ class Dbh
         $this->servername = "localhost";
         $this->username = "root";
         $this->pwd = "";
-        $this->dbname = "freemarket";
+        $this->dbname = "hotelterduin";
         $this->charset = "utf8mb4";
 
         // try catch method check erros connectie met mysql

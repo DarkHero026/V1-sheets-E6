@@ -1,6 +1,25 @@
 <?php
-session_start();
+
+if (isset($_POST["submit2"])) {
+
+    // Hier hal ik de data van index.php, wanneer er op submit geklikt wordt op sign up.
+    $userid = $_POST["userid"];
+    $pwd = $_POST["pwd"];
+    $pwd2 = $_POST["pwd2"];
+    $email = $_POST["email"];
+
+    // Neem classes en functie voor sign up.
+    include "database.php";
+    include "signup-database.php";
+    include "signup-checker.php";
+    //linked to signup-checker.
+    $signup = new SignupChecker($userid, $pwd, $pwd2, $email);
+
+    //Error checker linked to signup-checker.php
+    $signup->singupUser();
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +32,7 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <title>Document</title>
+    <title>Placeholder</title>
     <div name="nav">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Logo</a>
@@ -36,16 +55,38 @@ session_start();
         </nav>
     </div>
 </head>
+<br>
+</head>
 
 <body>
-    <br>
-    <div class="container">
-        <h1 class="cover-heading">Hotel ter duin</h1>
-        <p class="lead">Klik op Reservier om een kamer te reservieren en voor meer info ga naar klik op Contact</p>
-        <p class="lead">
-            <a href="r-klant.php" class="btn btn-lg btn-secondary">Reservieren</a>
-        </p>
-    </div>
+    <?php
+    if (isset($_POST["submit2"])) {
+    ?>
+        <h1>Medewerker is account is gemaakt. Klik op Inloggen om in te loggen.</h1>
+        <h2><a href="medewerker-login.php">Inloggen</a></h2>
+    <?php
+    } else {
+    ?>
+        <h1>Site with no styling "Yet"</h1>
+        <br>
+        <h4>Sign up</h4>
+        <p>Sign me up!</p>
+        <form action="medewerker-signin.php" method="post">
+            <input type="text" name="userid" placeholder="Username">
+            <input type="password" name="pwd" placeholder="Password">
+            <input type="password" name="pwd2" placeholder="Repeat Password">
+            <input type="text" name="email" placeholder="Email adres">
+            <br>
+            <button type="submit" name="submit2">SIGN UP</button>
+        </form>
+
+    <?php
+    }
+
+    ?>
+
+
+
 
 </body>
 

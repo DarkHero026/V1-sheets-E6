@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,9 +25,6 @@ session_start();
                     <li class="nav-item">
                         <a class="nav-link" href="contact-page.php">Contact</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link p-2" href="medewerker-login.php">LOGIN</a>
-                    </li>
                 </ul>
             </div>
         </nav>
@@ -38,14 +32,15 @@ session_start();
 </head>
 
 <body>
-    <br>
+    <br><br>
     <div class="container">
         <h1 class="cover-heading">Hotel ter duin</h1>
-        <p class="lead">Klik op Reservier om een kamer te reservieren en voor meer info ga naar klik op Contact</p>
+        <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
         <p class="lead">
-            <a href="r-klant.php" class="btn btn-lg btn-secondary">Reservieren</a>
+            <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
         </p>
     </div>
+
 
 </body>
 
